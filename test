@@ -1,6 +1,6 @@
 //profile-title: base64:2LPYsdmI2LEg2YXZhtiz2YjYriDYtNiv2Ycg2KfYs9iq
 //profile-update-interval: 24
-//subscription-userinfo: upload=0; download=0; total=10737418240000000; expire=256
+//subscription-userinfo: upload=0; download=0; total=10737418240000000; expire=12
 warp://162.159.195.51:7559/?ifp=5-10
 warp://162.159.192.236:934/?ifp=5-10
 warp://188.114.97.110:934/?ifp=5-10
