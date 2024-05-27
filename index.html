@@ -36,17 +36,4 @@
                     window.location.href = subscriptionUrl;
                 } else {
                     console.warn(`Subscription link for ${customerId} not found, redirecting to fake.txt`);
-                    window.location.href = "https://raw.githubusercontent.com/teknovpnhub/vpnhub/main/fake.txt";
-                }
-            } catch (error) {
-                console.error('Error during redirection:', error);
-                window.location.href = "https://raw.githubusercontent.com/teknovpnhub/vpnhub/main/fake.txt";
-            }
-        }
-        redirectToSubscription();
-    </script>
-</head>
-<body>
-    <p>Redirecting...</p>
-</body>
-</html>
+                    window.location.href = "https://raw.githubusercontent.com/teknovpnhub/vpnhub/main/fake.txt
