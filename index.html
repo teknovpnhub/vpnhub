@@ -5,15 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>V2Ray Subscription</title>
     <script>
-        function redirectToSubscription() {
+        async function fetchLinks() {
+            const response = await fetch('links.json');
+            const data = await response.json();
+            return data;
+        }
+
+        async function redirectToSubscription() {
             const urlParams = new URLSearchParams(window.location.search);
             const customerId = urlParams.get('customer');
-            const links = {
-              "customer1": "https://raw.githubusercontent.com/barry-far/V2ray-Configs/main/Splitted-By-Protocol/vmess.txt#%F0%9F%86%93%20Barry-far%20%7C%20vmess%F0%9F%A5%B7",
-              "customer2": "https://raw.githubusercontent.com/soroushmirzaei/telegram-configs-collector/main/protocols/shadowsocks#shadowsocks",
-              "customer3": "https://example.com/customer3-subscription"
-              // Add more links as needed
-            };
+            const links = await fetchLinks();
             const subscriptionUrl = links[customerId];
             if (subscriptionUrl) {
                 window.location.href = subscriptionUrl;
