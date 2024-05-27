@@ -1,1 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Subscription Access</title>
+    <script>
+        async function loadSubscription() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const customer = urlParams.get('customer');
+            if (!customer) {
+                document.getElementById('message').innerText = 'No customer specified.';
+                return;
+            }
 
+            const response = await fetch(${customer}.json);
+            if (!response.ok) {
+                document.getElementById('message').innerText = 'Invalid customer or access configuration.';
+                return;
+            }
+
+            const control = await response.json();
+            if (control.active) {
+                window.location.href = control.url;
+            } else {
+                window.location.href = "https://username.github.io/v2ray-subscription-manager/fake_subscription.txt";
+            }
+        }
+
+        window.onload = loadSubscription;
+    </script>
+</head>
+<body>
+    <div id="message">Loading...</div>
+</body>
+</html>
