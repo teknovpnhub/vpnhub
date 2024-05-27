@@ -12,21 +12,33 @@
         if (!customerId) {
             document.write("Customer ID is missing.");
         } else {
-            fetch('subscriptions.json')
-                .then(response => response.json())
-                .then(data => {
-                    const subscriptionLink = data[customerId];
-                    if (subscriptionLink) {
-                        window.location.href = subscriptionLink;
-                    } else {
-                        // Redirect to the fake server address if subscription is invalid
-                        window.location.href = "https://raw.githubusercontent.com/teknovpnhub/vpnhub/main/fake.txt";
-                    }
-                })
-                .catch(error => {
-                    console.error('Error fetching the subscription file:', error);
-                    document.write("Error fetching the subscription file.");
-                });
+            // Check if access to V2Ray subscription links is disabled
+            const accessEnabled = true; // Change this to false when access is disabled
+
+            if (accessEnabled) {
+                // Construct the URL for the customer's subscription file
+                const customerFileUrl = `https://raw.githubusercontent.com/teknovpnhub/vpnhub/customer${customerId}.txt`;
+
+                // Check if the customer's file exists
+                fetch(customerFileUrl)
+                    .then(response => {
+                        if (!response.ok) {
+                            // Redirect to fake.txt if the customer's file is not found
+                            window.location.href = `https://raw.githubusercontent.com/teknovpnhub/vpnhub/fake.txt`;
+                        } else {
+                            // Redirect to the customer's subscription file
+                            window.location.href = customerFileUrl;
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        // Redirect to fake.txt if an error occurs
+                        window.location.href = `https://raw.githubusercontent.com/teknovpnhub/vpnhub/fake.txt`;
+                    });
+            } else {
+                // Redirect to the fake.txt file when access is disabled
+                window.location.href = `https://raw.githubusercontent.com/teknovpnhub/vpnhub/fake.txt`;
+            }
         }
     </script>
 </head>
