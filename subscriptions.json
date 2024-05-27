@@ -1,1 +1,5 @@
-
+{
+    "customer1": "https://actual.subscription.link1",
+    "customer2": "https://actual.subscription.link2",
+    "customer3": "https://fake.subscription.link3"
+}
