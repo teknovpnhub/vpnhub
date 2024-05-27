@@ -19,7 +19,8 @@
                     if (subscriptionLink) {
                         window.location.href = subscriptionLink;
                     } else {
-                        document.write("Invalid customer ID.");
+                        // Redirect to the fake server address if subscription is invalid
+                        window.location.href = "https://raw.githubusercontent.com/teknovpnhub/vpnhub/main/fake.txt";
                     }
                 })
                 .catch(error => {
@@ -33,4 +34,3 @@
     <p>Redirecting...</p>
 </body>
 </html>
-
