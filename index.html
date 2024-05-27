@@ -1,1 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V2Ray Subscription</title>
+    <script>
+        // JavaScript code for redirection logic
+        const urlParams = new URLSearchParams(window.location.search);
+        const customerId = urlParams.get('customer');
+
+        if (!customerId) {
+            document.write("Customer ID is missing.");
+        } else {
+            fetch('subscriptions.json')
+                .then(response => response.json())
+                .then(data => {
+                    const subscriptionLink = data[customerId];
+                    if (subscriptionLink) {
+                        window.location.href = subscriptionLink;
+                    } else {
+                        document.write("Invalid customer ID.");
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching the subscription file:', error);
+                    document.write("Error fetching the subscription file.");
+                });
+        }
+    </script>
+</head>
+<body>
+    <p>Redirecting...</p>
+</body>
+</html>
 
