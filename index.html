@@ -6,20 +6,34 @@
     <title>V2Ray Subscription</title>
     <script>
         async function fetchLinks() {
-            const response = await fetch('links.json');
-            const data = await response.json();
-            return data;
+            try {
+                const response = await fetch('links.json');
+                if (!response.ok) {
+                    throw new Error('Failed to fetch links');
+                }
+                return await response.json();
+            } catch (error) {
+                console.error(error);
+                return {};
+            }
         }
 
         async function redirectToSubscription() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const customerId = urlParams.get('customer');
-            const links = await fetchLinks();
-            const subscriptionUrl = links[customerId];
-            if (subscriptionUrl) {
+            try {
+                const urlParams = new URLSearchParams(window.location.search);
+                const customerId = urlParams.get('customer');
+                if (!customerId) {
+                    throw new Error('Customer ID is missing');
+                }
+                const links = await fetchLinks();
+                const subscriptionUrl = links[customerId];
+                if (!subscriptionUrl) {
+                    throw new Error('Subscription link not found');
+                }
                 window.location.href = subscriptionUrl;
-            } else {
-                // Redirect to a fallback URL (e.g., fake.txt)
+            } catch (error) {
+                console.error(error);
+                // Redirect to a fallback URL (e.g., fake.txt) if an error occurs
                 window.location.href = "https://raw.githubusercontent.com/teknovpnhub/vpnhub/fake.txt";
             }
         }
