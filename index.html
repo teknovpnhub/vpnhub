@@ -9,11 +9,14 @@
             try {
                 const response = await fetch('links.json');
                 if (!response.ok) {
+                    console.error('Failed to fetch links.json');
                     throw new Error('Failed to fetch links');
                 }
-                return await response.json();
+                const data = await response.json();
+                console.log('Fetched links:', data);
+                return data;
             } catch (error) {
-                console.error(error);
+                console.error('Error fetching links:', error);
                 return {};
             }
         }
@@ -23,18 +26,21 @@
                 const urlParams = new URLSearchParams(window.location.search);
                 const customerId = urlParams.get('customer');
                 if (!customerId) {
+                    console.error('Customer ID is missing in the URL');
                     throw new Error('Customer ID is missing');
                 }
                 const links = await fetchLinks();
                 const subscriptionUrl = links[customerId];
-                if (!subscriptionUrl) {
-                    throw new Error('Subscription link not found');
+                if (subscriptionUrl) {
+                    console.log('Redirecting to subscription URL:', subscriptionUrl);
+                    window.location.href = subscriptionUrl;
+                } else {
+                    console.warn(`Subscription link for ${customerId} not found, redirecting to fake.txt`);
+                    window.location.href = "https://raw.githubusercontent.com/teknovpnhub/vpnhub/main/fake.txt";
                 }
-                window.location.href = subscriptionUrl;
             } catch (error) {
-                console.error(error);
-                // Redirect to a fallback URL (e.g., fake.txt) if an error occurs
-                window.location.href = "https://raw.githubusercontent.com/teknovpnhub/vpnhub/fake.txt";
+                console.error('Error during redirection:', error);
+                window.location.href = "https://raw.githubusercontent.com/teknovpnhub/vpnhub/main/fake.txt";
             }
         }
         redirectToSubscription();
