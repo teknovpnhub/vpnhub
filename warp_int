@@ -1,3 +1,1 @@
-#profile-update-interval: 1
-warp://162.159.192.16:7559/B87s4q1u-2ELFINA6c3-MTU1280?ifp=5-10#IR1🇮🇷&&detour=warp://162.159.192.16:7559/B87s4q1u-2ELFINA6c3-MTU1280#Main1🇩🇪
-warp://162.159.192.162:859/B87s4q1u-2ELFINA6c3-MTU1280?ifp=5-10#IR2🇮🇷&&detour=warp://162.159.192.162:859/B87s4q1u-2ELFINA6c3-MTU1280#Main2🇩🇪
+warp://162.159.192.16:7559/B87s4q1u-2ELFINA6c3-MTU1280?ifp=5-10#IR1🇮🇷&&detour=warp://162.159.192.16:7559/B87s4q1u-2ELFINA6c3-MTU1280#Main1🇩🇪warp://162.159.192.162:859/B87s4q1u-2ELFINA6c3-MTU1280?ifp=5-10#IR2🇮🇷&&detour=warp://162.159.192.162:859/B87s4q1u-2ELFINA6c3-MTU1280#Main2🇩🇪
