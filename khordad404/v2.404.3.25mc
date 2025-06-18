@@ -3,6 +3,7 @@ vless://89b3cbba-e6ac-485a-9481-976a0415eab9@45.131.211.145:80?security=none&typ
 ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTo2OU1VaWk3VkR3TXFoN0h6@admin.c4.webramz.co:443#4Mohsen-37
 ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpCb2cwRUxtTU05RFN4RGRR@85.210.120.237:443#4Nika-376
 ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpjdklJODVUclc2bjBPR3lmcEhWUzF1@45.87.175.199:8080#4Nika-780
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpCb2cwRUxtTU05RFN4RGRR@85.210.120.237:443#@elphone
 vless://70c2e363-a934-4ea5-9e29-7cadd817194c@172.64.229.221:8443?encryption=none&security=tls&sni=v2-3h5.pages.dev&alpn=http/1.1&fp=random&type=ws&host=v2-3h5.pages.dev&path=/%3Fed%3D2560#CF%E4%B8%AD%E8%BD%AC_06152010798
 vless://c98a16e4-0dc5-42f0-b3db-30f04525c123@104.17.189.171:443?encryption=none&security=tls&sni=vless10-9sc.pages.dev&alpn=&fp=random&type=ws&host=vless10-9sc.pages.dev&path=%2F%3Fed%3D2560&allowInsecure=1&fragment=1,40-60,30-50,tlshello#CF%E4%B8%AD%E8%BD%AC_06152011871
 vless://f78ce1bb-0fa6-4ef4-b4c9-b91014a7055d@104.24.135.83:80?security=none&sni=delam.ahaysiahzangi.dpdns.org&type=ws&host=delam.ahaysiahzangi.dpdns.org&path=%2F%3Fed%3D2560&fp=random#4Mohsen-17243
